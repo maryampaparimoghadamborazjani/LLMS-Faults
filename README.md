@@ -1,51 +1,41 @@
-# Faults in Large Language Models: A Critical Examination
-**Author:** Maryam Paparimoghadamborazjani (Mary Pa)  
-**Contact:** Maryam.Paparimoghadamborazjani@utexas.edu  
-*Keywords: Large Language Models, AI limitations, hallucinations, bias in AI, ethical concerns, AI sustainability*
+Faults in Large Language Models: A Critical Examination
+Author: Maryam Paparimoghadamborazjani 
 
-## Abstract
-We've seen large language models burst onto the scene, transforming how we handle text, from chatbots to code helpers. But honestly speaking, they're not perfect. Far from it. This paper digs into their main weaknesses: making stuff up, carrying over biases from dodgy data, faking deep thinking, opening doors to ethical messes, and guzzling resources like there's no tomorrow. Pulling from fresh studies, I lay out what this means in practice and toss out some ideas for fixing things. Bottom line: treat these models as handy sidekicks, not all-knowing gurus, and push for smarter, human-in-the-loop setups.
+Contact: Maryam.Paparimoghadamborazjani@utexas.edu
 
-## 1. Introduction
-Think about it—models like GPT or Llama get fed mountains of text from the web and books, then spit out responses that sound eerily human. They're great for quick summaries or brainstorming code, but peel back the layers, and you find errors everywhere. These aren't just minor glitches; they're baked-in problems from how they're built and trained. 
+Keywords: Large Language Models, AI limitations, hallucinations, bias in AI, ethical concerns, AI sustainability
 
-*(Tip: You can drag and drop a diagram of how LLMs process data right here in the GitHub editor to make the page more visually engaging and instructive for readers.)*
+Abstract
+Large Language Models (LLMs) have significantly transformed natural language processing applications, from conversational agents to code generation. However, these systems exhibit substantial limitations. This paper examines their primary vulnerabilities: hallucinations, the propagation of biases from training data, the illusion of reasoning, ethical and security risks, and substantial environmental costs. Drawing on recent research, this review outlines the practical implications of these flaws and proposes mitigation strategies, advocating for a human-in-the-loop approach and treating LLMs as assistive tools rather than infallible systems.
 
-Stuff like spitting out false info or echoing real-world prejudices can cause real trouble, especially in fields like medicine or justice where accuracy matters. Here, I break it down into five big issues, talk about the fallout, and suggest ways forward. This isn't just academic nitpicking—it's about guiding folks building and using this tech to do it right.
+1. Introduction
+Foundational models such as GPT and LLaMA are trained on massive textual datasets, enabling them to generate highly coherent, human-like text. While effective for summarization and code generation, their underlying architectures harbor structural flaws. These are not merely superficial errors but inherent issues stemming from their training methodologies. The generation of false information or the echoing of societal prejudices can have severe consequences, particularly in high-stakes domains such as healthcare and criminal justice. This paper categorizes these challenges into five primary areas, discusses their real-world impact, and suggests pathways for more responsible development and deployment.
 
-## 2. Hallucinations and Factual Inaccuracies
-Ever ask an AI a question and get a super confident answer that's totally wrong? That's hallucinations for you. These models aren't fact-checkers; they're just guessing the next word based on stats from their training. So, they might mess up a date in history or make up details about some tech gadget. Humans double-check with books or memory, but LLMs? Not unless you bolt on extra tools.
+2. Hallucinations and Factual Inaccuracies
+A well-documented limitation of LLMs is their tendency to "hallucinate"—generating highly confident but factually incorrect outputs. Because these models function essentially as probabilistic next-word predictors rather than fact-checking databases, they frequently fabricate dates, technical details, or historical events. Unlike human cognition, LLMs cannot verify their own claims without external integrations. This poses significant risks in critical fields like law and medicine. Recent research, such as the work by Farquhar et al. (2024), introduces "semantic entropy" to detect these errors by measuring the model's uncertainty at the level of meaning rather than specific phrasing [1]. While techniques like Retrieval-Augmented Generation (RAG) provide external grounding, they can be cumbersome and still struggle with outdated or conflicting information.
 
-This bites hard in serious spots—like giving bad legal tips or sketchy health advice. A team including Farquhar and others (2024) came up with this "semantic entropy" trick to spot these slip-ups by measuring how unsure the model is about meanings, not just words [1]. Stuff like adding real-time data pulls (RAG) helps, but it's clunky and still trips on old info.
+3. Inherent Biases and Fairness Issues
+The outputs of LLMs are fundamentally constrained by their training data. Because these datasets often reflect historical human biases, stereotypes, and a predominantly Western, English-centric worldview, the models inevitably internalize and reproduce these prejudices. This can result in outputs that default to gendered assumptions about professions or perpetuate cultural clichés. In applications such as automated resume screening, these biases can lead to systemic discrimination against qualified candidates. While studies like Nyarko et al. (2024) demonstrate that targeted pruning and fine-tuning can mitigate bias in specific scenarios, there is no universal solution, complicating accountability [2]. Effective mitigation requires a combination of diversified training data, algorithmic fairness interventions, and continuous auditing.
 
-## 3. Inherent Biases and Fairness Issues
-Not a big surprise: garbage in, garbage out. Training data's full of human biases—think stereotypes about jobs or cultures—and models soak it up. They might default to "doctor" as male or churn out clichéd takes on minorities. It's not the AI being mean; it's mirroring our messy world, where English and Western views dominate the data.
+4. Lack of True Comprehension and Reasoning
+Despite their fluency, LLMs do not possess genuine comprehension or reasoning capabilities; their performance relies on sophisticated pattern matching. They can excel at familiar logical puzzles but frequently fail when presented with novel variations, demonstrating a lack of underlying causal understanding. Bender et al. (2021) famously characterized these models as "stochastic parrots," emphasizing that they synthesize language without grasping its meaning [3]. While prompting strategies like "Chain-of-Thought" (asking the model to evaluate step-by-step) can improve apparent logical flow, they do not simulate true cognition. Consequently, LLMs cannot be entirely relied upon for autonomous decision-making in complex moral or logical scenarios.
 
-The ripple effects? In job screening apps, it could skip over qualified folks based on word choices. Nyarko and crew (2025) showed you can trim biases in specific scenarios, but it's no magic fix-all, and it muddies who to blame when things go wrong [2]. Fixes? Mix up the data more, tweak with anti-bias training, and keep checking. But "fair" is tricky—what's neutral to one person isn't to another.
+5. Ethical and Security Vulnerabilities
+The proliferation of LLMs introduces significant ethical and security concerns, including the facilitated creation of deepfakes, misinformation, and plagiarized content. The "black box" nature of these models makes explainability difficult, undermining user trust. Furthermore, models trained on unvetted public data may inadvertently memorize and expose sensitive personal information. From a security perspective, LLMs are vulnerable to adversarial attacks, such as prompt injection and data poisoning, which can bypass safety guardrails. Li and Fung (2024) emphasize the need for robust, multi-layered defensive frameworks to counter these threats [4]. While legislative efforts like the EU AI Act aim to regulate deployment, technological advancements frequently outpace regulatory frameworks.
 
-## 4. Lack of True Comprehension and Reasoning
-These things act smart, but it's all smoke and mirrors—pattern-matching, not real views. They nail puzzles they've seen before but choke on twists. No grasp of why things happen, or feelings, or tricky contexts.
+6. Environmental and Scalability Concerns
+The computational resources required to train and deploy state-of-the-art LLMs have a profound environmental impact. Training large-scale models consumes massive amounts of electricity, resulting in carbon footprints comparable to commercial aviation. Furthermore, the trend toward increasingly larger parameter counts often yields diminishing returns in performance relative to the exponential increase in energy cost. Morrison et al. (2024) highlight that even mid-sized open-source models (e.g., 13B parameters) can emit 493 tons of CO₂, enough to power nearly 100 US homes for a year [5]. While open-source initiatives democratize access, they also multiply the number of models being trained. Addressing these concerns requires a shift toward more parameter-efficient architectures and sustainable hardware infrastructure.
 
-Creative stuff comes out flat: poems that rhyme but say nothing deep. On tough logic or morals, they fake it with shortcuts. Bender, Gebru, and team (2021) nailed it calling them "stochastic parrots"—just parroting data without getting the point [3]. Prompts that make them "think step by step" improve things a bit, but don't kid yourself; it's not true smarts. We can't lean on them too hard for teaching or big decisions.
+7. Pathways Forward and Conclusion
+To harness the capabilities of LLMs safely, the AI community must prioritize transparency, human-in-the-loop verification, and ethics-by-design principles. Users must adopt a critical approach to AI-generated content, while developers must focus on robustness and interpretability. In conclusion, the identified vulnerabilities—ranging from hallucinations and bias to environmental degradation—underscore that LLMs are powerful assistive tools, not autonomous authorities. By addressing these limitations directly, the field can maximize the utility of these models while mitigating their inherent risks.
 
-## 5. Ethical and Security Vulnerabilities
-On the dark side, LLMs make it easy to pump out fakes—deepfakes, lies for clicks, or ripped-off writing. They're black boxes, so figuring out why they say something is a headache, killing trust. And privacy? They train on our data without asking, sometimes spitting back personal bits.
+References
+S. Farquhar, J. Kossen, L. Kuhn, and Y. Gal, "Detecting hallucinations in large language models using semantic entropy," Nature, vol. 630, no. 8017, pp. 625-630, 2024.
 
-Hack-wise, sneaky prompts can make them spill secrets or act out. Li and Fung (2025) rounded up threats like breaking safeguards or poisoning data, calling for layered protections [4]. Laws like the EU's AI rules are trying to rein it in, but tech moves faster than regs.
+J. Nyarko, D. E. Ho, E. Talley, M. Imai, and Y. Kim, "LLM Pruning and the Law," arXiv preprint arXiv:2407.00202, 2024.
 
-## 6. Environmental and Scalability Concerns
-Training one of these beasts burns power like a small city. Carbon-wise, it's like jetting across oceans, adding to the climate mess. And bigger isn't always better—pumping up size gives tiny boosts for huge costs.
+E. M. Bender, T. Gebru, A. McMillan-Major, and S. Shmitchell, "On the Dangers of Stochastic Parrots: Can Language Models Be Too Big?," in Proceedings of the 2021 ACM Conference on Fairness, Accountability, and Transparency, pp. 610-623, 2021.
 
-Morrison et al. (2025) crunched numbers: a mid-size model (13B params) spews 493 tons of CO2, enough to run nearly 100 US homes for a year [5]. Open-source helps spread access, but it also lets loose half-baked versions. Go greener with smarter designs and efficient hardware.
+M. Q. Li and B. C. M. Fung, "A Survey on Ethical Hacking of Commercial Large Language Models," arXiv preprint arXiv:2409.06295, 2024.
 
-## 7. Pathways Forward and Conclusion
-Look, LLMs can change the game if we handle them smartly. Mix in human checks, open up how they act, and build ethics in from the start to cut risks. Users: always verify. Builders: focus on toughening them up. Everyone: push for rules that stick.
-
-Wrapping up, these flaws—from made-up facts to biases, fake depth, shady ethics, and eco-hits—show LLMs as boosters for our brains, not stand-ins. Tackle them straight on, and we unlock the good without the grief.
-
-## References
-1. S. Farquhar, J. Kossen, L. Kuhn, and Y. Gal, "Detecting hallucinations in large language models using semantic entropy," *Nature*, vol. 630, no. 8017, pp. 625-630, 2024.
-2. J. Nyarko, D. E. Ho, E. Talley, M. Imai, and Y. Kim, "LLM Pruning and the Law," *arXiv preprint arXiv:2407.00202*, 2025.
-3. E. M. Bender, T. Gebru, A. McMillan-Major, and S. Shmitchell, "On the Dangers of Stochastic Parrots: Can Language Models Be Too Big?," in *Proceedings of the 2021 ACM Conference on Fairness, Accountability, and Transparency*, pp. 610-623, 2021.
-4. M. Q. Li and B. C. M. Fung, "A Survey on Ethical Hacking of Commercial Large Language Models," *arXiv preprint arXiv:2409.06295*, 2025.
-5. J. Morrison, C. Na, J. Fernandez, T. Dettmers, E. Strubell, and J. Dodge, "Carbon Emissions in Open-Source AI Development," *arXiv preprint arXiv:2410.05756*, 2025.
+J. Morrison, C. Na, J. Fernandez, T. Dettmers, E. Strubell, and J. Dodge, "Carbon Emissions in Open-Source AI Development," arXiv preprint arXiv:2410.05756, 2024.
